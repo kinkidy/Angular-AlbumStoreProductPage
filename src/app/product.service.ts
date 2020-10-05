@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { Http, Response } from '@angular/http'
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
 import { AlbumStorePage } from '../../e2e/app.po';
@@ -10,7 +10,7 @@ export class ProductService {
   private _albumUrl: '../assets/album.json';
   // album: any;
 
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: Http) { }
 
   getAlbum( id: number): Observable<album> {
     return this._http.get(this._albumUrl)
